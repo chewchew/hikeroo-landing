@@ -24,9 +24,14 @@ export default function Home() {
         </p>
 
         {/* CTA Button */}
-        <button className="font-sans bg-hikeroo-yellow text-hikeroo-bg px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-button font-semibold hover:bg-opacity-90 transition-colors">
+        <a
+          href="https://www.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block font-sans bg-hikeroo-yellow text-hikeroo-bg px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-button font-semibold hover:bg-opacity-90 transition-colors"
+        >
           Sign me up for the Beta!
-        </button>
+        </a>
       </div>
 
       {/* App Preview Image */}

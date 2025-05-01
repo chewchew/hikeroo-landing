@@ -1,40 +1,44 @@
 import Image from 'next/image'
 
 export default function Home() {
+  // Use basePath only in production
+  const imagePath = process.env.NODE_ENV === 'production' 
+    ? '/hikeroo-landing/app-preview.png'
+    : '/app-preview.png'
+
   return (
-    <main className="min-h-screen flex flex-col items-center px-4 py-16 text-center">
+    <main className="min-h-screen flex flex-col items-center px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16 text-center">
       {/* Logo */}
-      <h1 className="text-hikeroo-yellow text-3xl font-semibold mb-12">
+      <h1 className="font-pacifico text-hikeroo-yellow text-logo-mobile sm:text-logo font-normal mb-8 sm:mb-12">
         Hikeroo
       </h1>
 
       {/* Hero Text */}
-      <div className="max-w-3xl mx-auto mb-8">
-        <h2 className="text-hikeroo-yellow text-5xl font-bold mb-6 leading-tight">
-          You hike. We'll handle<br />everything else.
+      <div className="w-full max-w-[90vw] lg:max-w-5xl mx-auto mb-8">
+        <h2 className="font-mousememoirs text-hikeroo-yellow text-heading-mobile sm:text-heading-tablet lg:text-heading font-normal mb-4 sm:mb-6 leading-tight">
+          You hike. We'll handle everything else.
         </h2>
-        <p className="text-hikeroo-yellow/90 text-xl mb-12">
-          From gear lists to meal plans and weather alerts – get<br />
+        <p className="font-sans text-hikeroo-yellow/90 text-body-mobile sm:text-body font-light mb-8 sm:mb-12 max-w-3xl mx-auto">
+          From gear lists to meal plans and weather alerts – get
           everything you need for your trip, all in one app.
         </p>
 
         {/* CTA Button */}
-        <button className="bg-hikeroo-yellow text-hikeroo-green px-8 py-3 rounded-full text-lg font-medium hover:bg-opacity-90 transition-colors">
+        <button className="font-sans bg-hikeroo-yellow text-hikeroo-bg px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-button font-semibold hover:bg-opacity-90 transition-colors">
           Sign me up for the Beta!
         </button>
       </div>
 
-      {/* Phone Mockups */}
-      <div className="w-full max-w-4xl mt-16 flex justify-center gap-4">
-        {[1, 2, 3, 4].map((index) => (
-          <div
-            key={index}
-            className="w-[240px] h-[480px] bg-white rounded-[40px] border-4 border-black relative overflow-hidden"
-          >
-            {/* Phone Notch */}
-            <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-24 h-6 bg-black rounded-b-2xl" />
-          </div>
-        ))}
+      {/* App Preview Image */}
+      <div className="w-full max-w-[95vw] lg:max-w-4xl mt-8 sm:mt-12 lg:mt-16 px-4">
+        <Image
+          src={imagePath}
+          alt="Hikeroo App Preview"
+          width={2132}
+          height={1266}
+          className="w-full h-auto rounded-lg shadow-xl"
+          priority
+        />
       </div>
     </main>
   )

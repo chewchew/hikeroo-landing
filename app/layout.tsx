@@ -1,8 +1,27 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Open_Sans, Pacifico, Mouse_Memoirs } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+const openSans = Open_Sans({ 
+  subsets: ['latin'],
+  weight: ['300', '600'], // light and semibold weights
+  variable: '--font-opensans',
+  display: 'swap',
+})
+
+const pacifico = Pacifico({ 
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-pacifico',
+  display: 'swap',
+})
+
+const mouseMemoirs = Mouse_Memoirs({ 
+  weight: '400',
+  subsets: ['latin'],
+  variable: '--font-mousememoirs',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: 'Hikeroo - Your Ultimate Hiking Companion',
@@ -16,7 +35,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans`}>{children}</body>
+      <body className={`${openSans.variable} ${pacifico.variable} ${mouseMemoirs.variable} font-sans`}>
+        {children}
+      </body>
     </html>
   )
 } 

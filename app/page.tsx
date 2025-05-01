@@ -36,7 +36,7 @@ export default function Home() {
           alt="Hikeroo App Preview"
           width={2132}
           height={1266}
-          className="w-full h-auto rounded-lg shadow-xl"
+          className="w-full h-auto rounded-lg"
           priority
         />
       </div>

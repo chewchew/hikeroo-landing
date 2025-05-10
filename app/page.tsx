@@ -1,6 +1,12 @@
+'use client'
+
 import Image from 'next/image'
+import { useState } from 'react'
+import TypeformModal from './components/TypeformModal'
 
 export default function Home() {
+  const [showTypeform, setShowTypeform] = useState(false)
+  
   // Use basePath only in production
   const imagePath = process.env.NODE_ENV === 'production' 
     ? '/hikeroo-landing/app-preview.png'
@@ -24,14 +30,12 @@ export default function Home() {
         </p>
 
         {/* CTA Button */}
-        <a
-          href="https://www.google.com"
-          target="_blank"
-          rel="noopener noreferrer"
+        <button
+          onClick={() => setShowTypeform(true)}
           className="inline-block font-sans bg-hikeroo-yellow text-hikeroo-bg px-6 sm:px-8 py-2.5 sm:py-3 rounded-full text-button font-semibold hover:bg-opacity-90 transition-colors"
         >
           Sign me up for the Beta!
-        </a>
+        </button>
       </div>
 
       {/* App Preview Image */}
@@ -45,6 +49,9 @@ export default function Home() {
           priority
         />
       </div>
+
+      {/* Typeform Modal */}
+      {showTypeform && <TypeformModal />}
     </main>
   )
 } 
